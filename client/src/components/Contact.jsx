@@ -29,13 +29,49 @@ const Contact = () => {
           </p>
 
           {/* Contact Info */}
-          <div className="space-y-4 text-gray-300">
+         {/* Contact Info & Socials */}
+<div className="space-y-5 text-gray-300">
 
-            <p>📧 contact@ritualhaus.com</p>
-            <p>📞 +91 98765 43210</p>
-            <p>📍 Mumbai, India</p>
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/919876543210"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 hover:text-green-400 transition"
+  >
+    💬 <span>Chat on WhatsApp</span>
+  </a>
 
-          </div>
+  {/* Email */}
+  <a
+    href="mailto:contact@ritualhaus.com"
+    className="flex items-center gap-3 hover:text-rose-400 transition"
+  >
+    📧 <span>contact@ritualhaus.com</span>
+  </a>
+
+  {/* Instagram */}
+  <a
+    href="https://instagram.com/yourusername"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 hover:text-pink-400 transition"
+  >
+    📸 <span>@ritualhaus</span>
+  </a>
+
+  {/* YouTube */}
+  <a
+    href="https://youtube.com/@yourchannel"
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center gap-3 hover:text-red-400 transition"
+  >
+    ▶️ <span>Ritual Haus Studio</span>
+  </a>
+
+</div>
+
 
         </motion.div>
 
