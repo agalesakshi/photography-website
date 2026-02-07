@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 
 const serviceData = {
   wedding: {
@@ -51,6 +52,8 @@ const ServicePage = () => {
 
   const service = serviceData[type];
 
+  const [selectedImage, setSelectedImage] = useState("");
+
   if (!service) {
     return (
       <div className="h-screen flex items-center justify-center text-white bg-black">
@@ -62,7 +65,7 @@ const ServicePage = () => {
   return (
     <section className="min-h-screen bg-black text-white py-20 px-6">
 
-      {/* Back Button */}
+      {/* Back */}
       <Link
         to="/"
         className="inline-block mb-8 text-pink-400 hover:underline"
@@ -85,18 +88,34 @@ const ServicePage = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
 
         {service.images.map((img, i) => (
-          <div key={i} className="overflow-hidden rounded-xl">
-
+          <div
+            key={i}
+            onClick={() => setSelectedImage(img)}
+            className="overflow-hidden rounded-xl cursor-pointer"
+          >
             <img
               src={img}
               alt=""
               className="w-full h-72 object-cover hover:scale-110 transition duration-700"
             />
-
           </div>
         ))}
 
       </div>
+
+      {/* Lightbox */}
+      {selectedImage !== "" && (
+        <div
+          onClick={() => setSelectedImage("")}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-[999] p-6"
+        >
+          <img
+            src={selectedImage}
+            alt="Preview"
+            className="max-w-full max-h-full rounded-xl shadow-2xl"
+          />
+        </div>
+      )}
 
     </section>
   );

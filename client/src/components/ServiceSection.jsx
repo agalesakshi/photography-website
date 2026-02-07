@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 
 const services = [
   {
@@ -54,6 +56,15 @@ const Services = () => {
       <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
         {services.map((service, index) => (
+  <motion.div
+    key={index}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: index * 0.15 }}
+    viewport={{ once: true }}
+  >
+    
+
           <Link
             to={service.link}
             key={index}
@@ -84,6 +95,9 @@ const Services = () => {
             </div>
 
           </Link>
+            
+</motion.div>
+
         ))}
 
       </div>

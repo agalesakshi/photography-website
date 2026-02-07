@@ -1,6 +1,14 @@
+import { motion } from "framer-motion";
+
 const Intro = () => {
   return (
-    <section className="relative py-32 px-6 bg-gradient-to-b from-black/90 via-[#1a1414] to-[#241919] text-white overflow-hidden">
+    <motion.section
+  initial={{ opacity: 0, y: 80 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true }}
+  className="relative py-32 px-6 bg-gradient-to-b from-black/90 via-[#1a1414] to-[#241919] text-white overflow-hidden"
+>
 
       {/* Soft Light Effects */}
       <div className="absolute top-10 left-20 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl"></div>
@@ -56,7 +64,8 @@ const Intro = () => {
         </div>
 
       </div>
-    </section>
+    </motion.section>
+
   );
 };
 
